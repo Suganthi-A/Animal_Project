@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Search</title>
+    <style>
+        #images {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            display: none;
+        }
+        #error {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Animal Search</h1>
+    <input type="text" id="searchInput" placeholder="Enter an Animal name...">
+    <button onclick="searchAnimal()">Search</button>
+    <div>
+        <img id="images" alt="animal image">
+        <p id="error">Animal not found</p>
+    </div>
+    <script>
+        const Animal_Project = {
+            deer: 'https://cdn.pixabay.com/photo/2019/08/03/12/15/fallow-deer-4381666_640.jpg',
+            cat: 'https://d2zp5xs5cp8zlg.cloudfront.net/image-53920-800.jpg',
+            dog: 'https://thumbs.dreamstime.com/b/golden-retriever-dog-21668976.jpg'
+        };
+    
+    function searchAnimal() {
+        const searchInput = document.getElementById('searchInput').value.toLowerCase();
+        const images = document.getElementById('images');
+        const error = document.getElementById('error');
+
+        if (Animal_Project[searchInput]) {
+            images.src = Animal_Project[searchInput];
+            images.style.display = 'block';
+            error.style.display = 'none';
+        } else {
+            images.style.display = 'none';
+            error.style.display = 'block'
+        }
+    }
+</script>
+</body>
+</html>
